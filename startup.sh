@@ -1,18 +1,22 @@
 #!/bin/bash
 
-# Navega al directorio de la app (Azure App Service la monta en esta ruta)
-cd /home/site/wwwroot
+echo "Iniciando despliegue Laravel en Azure..."
 
-# Instala dependencias de PHP si no existen
+cd /home/site/wwwroot || exit
+
+echo "Instalando dependencias composer..."
 if [ ! -d "vendor" ]; then
     composer install --no-dev --optimize-autoloader
 fi
 
-# Da permisos adecuados para Laravel
+echo "Dando permisos a storage y bootstrap/cache..."
 chmod -R 775 storage bootstrap/cache
 
-# Opcional: ejecutar migraciones automáticamente (descomenta si lo necesitas)
+echo "Generando APP_KEY si no existe..."
+php artisan key:generate
+
+echo "Ejecutando migraciones (opcional, comenta si no quieres)..."
 # php artisan migrate --force
 
-# Inicia el servidor web desde /public
+echo "Iniciando servidor PHP en puerto 8080..."
 php -S 0.0.0.0:8080 -t public
