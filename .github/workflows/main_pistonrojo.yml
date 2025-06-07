@@ -33,16 +33,9 @@ jobs:
           php artisan route:cache
           php artisan view:cache
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A66AF9F919584CAFABF9FB1332EFCE90 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_254F0675844543B3B71C9AE648E93D1C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B295A1F7C2EA412B860E238C17DEF900 }}
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'PistonRojo'
-          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_PISTONROJO }}
           package: .
