@@ -8,6 +8,10 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Middleware\RolAdmin;
 use App\Http\Middleware\RolCliente;
 
+Route::get('/envtest', function () {
+    return env('DB_DATABASE') . ' - ' . env('APP_ENV');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Rutas públicas
