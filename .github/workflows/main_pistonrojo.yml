@@ -36,6 +36,9 @@ jobs:
           php artisan route:cache
           php artisan view:cache
 
+      - name: Empaquetar artefacto para deploy
+        run: zip -r deploy.zip . -x '*.git*' '*.env*' 'node_modules/*' 'tests/*'
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -48,7 +51,7 @@ jobs:
         with:
           app-name: 'PistonRojo'
           slot-name: 'Production'
-          package: .
+          package: deploy.zip
 
       - name: Remove hostingstart.html after deploy
         uses: azure/CLI@v2
