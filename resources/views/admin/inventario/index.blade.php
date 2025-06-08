@@ -7,9 +7,10 @@
         <!-- Cabecera -->
         <div class="row align-items-center mb-4 g-3">
             <div class="col-12 col-md-auto mb-2 mb-md-0 d-flex align-items-center">
-                <a href="http://127.0.0.1:8000/admin/inicio" class="btn-regresar">
-                    ← Volver al inicio
-                </a>
+                <a href="{{ route('admin.inicio') }}" class="btn-regresar">
+    ← Volver al inicio
+</a>
+
             </div>
             <div class="col-12 col-md text-center mb-2 mb-md-0">
                 <h1 class="text-3xl font-bold m-0">Inventario de Productos</h1>
