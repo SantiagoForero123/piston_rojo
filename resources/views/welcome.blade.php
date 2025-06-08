@@ -201,36 +201,38 @@
         </div>
     </div>
 
-    <!-- Mapa -->
-    <div class="elementor-1240 elementor-element elementor-element-9ac4d4f"
-        style="width: 100%; max-width: 800px; height: 400px; margin: 20px auto; display: flex; justify-content: center; align-items: center;">
-        <gmp-map center="4.486197,-74.101221" zoom="19" map-id="DEMO_MAP_ID" style="width: 100%; height: 100%;">
-            <gmp-advanced-marker position="4.486197,-74.101221" title="Cl. 114b Sur #7f Este-1"></gmp-advanced-marker>
-        </gmp-map>
+     <div class="info-box container mb-5">
+    <div class="map-container mb-3 rounded overflow-hidden" style="height: 250px;">
+        <iframe
+            width="100%" height="100%" frameborder="0" style="border:0"
+            src="https://www.google.com/maps?q=4.486197,-74.101221&z=19&output=embed"
+            allowfullscreen>
+        </iframe>
     </div>
+</div>  <!-- Cierro el contenedor de info-box aquí -->
 
-    <footer class="footer bg-white text-dark text-center py-4 mt-5 w-100" style="box-shadow: 0 -2px 8px rgba(0,0,0,0.05);">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <p class="mb-1">Contáctenos: +57 3053055073</p>
-                    <p class="mb-0">Ubicación: Calle 109 sur # 7 este 14, Bogotá, Colombia</p>
-                </div>
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <p class="mb-1"><a href="#" class="text-dark text-decoration-none">Política Tratamiento de datos</a></p>
-                    <p class="mb-0"><a href="#" class="text-dark text-decoration-none">Repositorio de motos</a></p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <a href="https://www.facebook.com/miltonjulio.vargasgonzalez" target="_blank" class="mx-2">
-                        <img src="{{ asset('imagenes/facebook.png') }}" alt="Facebook" style="width:32px;">
-                    </a>
-                    <a href="https://www.whatsapp.com/" target="_blank" class="mx-2">
-                        <img src="{{ asset('imagenes/whatsap.jpg') }}" alt="Whatsapp" style="width:32px;">
-                    </a>
-                </div>
+<footer class="footer bg-white text-dark text-center py-4 mt-5 w-100" style="box-shadow: 0 -2px 8px rgba(0,0,0,0.05);">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <p class="mb-1">Contáctenos: +57 3053055073</p>
+                <p class="mb-0">Ubicación: Calle 109 sur # 7 este 14, Bogotá, Colombia</p>
+            </div>
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <p class="mb-1"><a href="#" class="text-dark text-decoration-none">Política Tratamiento de datos</a></p>
+                <p class="mb-0"><a href="#" class="text-dark text-decoration-none">Repositorio de motos</a></p>
+            </div>
+            <div class="col-12 col-md-4">
+                <a href="https://www.facebook.com/miltonjulio.vargasgonzalez" target="_blank" class="mx-2">
+                    <img src="{{ asset('imagenes/facebook.png') }}" alt="Facebook" style="width:32px;">
+                </a>
+                <a href="https://www.whatsapp.com/" target="_blank" class="mx-2">
+                    <img src="{{ asset('imagenes/whatsap.jpg') }}" alt="Whatsapp" style="width:32px;">
+                </a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script src="{{ asset('assets/js/T-Titule.js') }}"></script>
 </body>

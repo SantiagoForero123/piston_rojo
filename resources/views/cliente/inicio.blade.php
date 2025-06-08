@@ -79,7 +79,6 @@
     </div>
 
     <div class="info-box container mb-5">
-        <h2 class="h4 fw-bold mb-3 text-center text-md-start">¿Dónde estamos?</h2>
         <div class="map-container mb-3 rounded overflow-hidden" style="height: 250px;">
             <iframe
                 width="100%" height="100%" frameborder="0" style="border:0"
@@ -88,13 +87,14 @@
             </iframe>
         </div>
         <div class="contacto-box row g-2">
-            <div class="contacto-item col-12 col-md-6 text-center text-md-start">
-                <span>Calle 109 sur # 7 este 14, Bogotá, Colombia</span>
-            </div>
-            <div class="contacto-item col-12 col-md-6 text-center text-md-end">
-                <span>Contáctanos: <a href="tel:+573053055073" class="cliente-link">+57 3053055073</a></span>
-            </div>
-        </div>
+    <div class="contacto-item col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start text-center text-md-start">
+        <span>Calle 109 sur # 7 este 14, Bogotá, Colombia</span>
+    </div>
+    <div class="contacto-item col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-end text-center text-md-end">
+        <span>Contáctanos: <a href="tel:+573053055073" class="cliente-link">+57 3053055073</a></span>
+    </div>
+</div>
+
     </div>
 
     <div class="cliente-footer py-3">
