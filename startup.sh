@@ -17,4 +17,6 @@ php artisan view:cache
 echo "Ejecutando migraciones..."
 php artisan migrate --force
 
-echo "Despliegue completado."
+# Iniciar servidor web en public/
+echo "Iniciando servidor PHP..."
+php -S 0.0.0.0:80 -t public
