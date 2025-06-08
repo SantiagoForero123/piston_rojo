@@ -12,8 +12,6 @@ fi
 echo "Dando permisos a storage y bootstrap/cache..."
 chmod -R 775 storage bootstrap/cache
 
-echo "Generando APP_KEY si no existe..."
-php artisan key:generate
 
 echo "Ejecutando migraciones (opcional, comenta si no quieres)..."
 # php artisan migrate --force
