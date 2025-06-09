@@ -1,61 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PISTON ROJO
 
+---
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://github.com/JuanFachas/Repositorio-PR/assets/173213965/dd3b9629-39d8-4991-9e2d-64749cc9a383">
 </p>
 
-## About Laravel
+## Problemática
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Después de hablar con el gerente de "El Pistón Rojo", identificamos desafíos clave. El desorden en el inventario de repuestos, gestionado en un cuaderno desorganizado, dificulta las reparaciones rápidas. Además, la falta de control en las citas causa congestión en el taller, obligando a los clientes a regresar al día siguiente por falta de espacio. Estos problemas afectan las ventas y la satisfacción del cliente, subrayando la necesidad urgente de mejorar la eficiencia operativa.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
+## Objetivos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Objetivo General:** Para mejorar la eficiencia y la satisfacción en "El Pistón Rojo", proponemos implementar un sistema de gestión de inventario eficiente. Esto reducirá los tiempos de espera en las reparaciones de motos y mejorará la experiencia del cliente. Además, integraremos un sistema de agendamiento de citas para resolver la congestión y asegurar un flujo de trabajo más ordenado y predecible.
 
-## Learning Laravel
+**Objetivos Específicos:** 
+- Desarrollar un sistema de gestión de inventario digitalizado para administrar eficientemente los repuestos disponibles en "El Pistón Rojo".
+- Implementar un sistema de agendamiento de citas para evitar la sobrecarga en el taller.
+- Incorporar un inicio de sesión seguro que permita a los usuarios proporcionar información relevante sobre ellos y sus motos.
+---
+## Justificación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ante la necesidad de optimizar los procesos internos de "El Pistón Rojo", empresa especializada en servicios de reparación de motocicletas y venta de repuestos, se ha identificado la oportunidad de desarrollar un sistema de información especializado. La implementación de este sistema no solo mejorará la productividad y la eficiencia operativa, sino que también fortalecerá la satisfacción del cliente al facilitar el acceso a servicios de reparación eficientes y gestionar adecuadamente el inventario de repuestos.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
+## Alcance y Delimitación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Alcance:** El proyecto tiene como objetivo principal desarrollar e implementar un sistema de información para "El Pistón Rojo", centrado en la gestión de inventario y servicios de reparación de motos. Se establece un período de desarrollo de 6 trimestres para completar el proyecto, desde la planificación inicial hasta la implementación y fase final. El sistema incluirá una visualización clara de los repuestos disponibles y servicios de reparación, así como un sistema de búsqueda para mejorar la experiencia del usuario. También se integrará un formulario de contacto para consultas, cotizaciones y programación de citas de servicio.
 
-## Laravel Sponsors
+**Delimitación:** El proyecto estará limitado por el tiempo disponible de 6 trimestres para su desarrollo, así como por los recursos humanos y financieros asignados. Se enfocará en las áreas identificadas de gestión de inventario y agendamiento de citas, dejando fuera aspectos como la contabilidad y finanzas que serán manejados por sistemas independientes. Se priorizará la implementación de funcionalidades clave para cumplir con los requisitos específicos de "El Pistón Rojo", considerando funcionalidades adicionales para futuras etapas del proyecto.
 
-We would like to extend our thanks to the following sponsors for funding Laravel developmentss. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
