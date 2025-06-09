@@ -41,8 +41,7 @@
 }
 
 .navbar-toggler {
-    background-color: #000 !important;
-    /* Color negro para el botón completo */
+    
     border-color: #000 !important;
     /* Color negro para el borde del botón */
 }
