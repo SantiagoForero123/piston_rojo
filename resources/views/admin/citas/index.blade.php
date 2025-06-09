@@ -5,11 +5,12 @@
 
 <div class="container py-4">
     <div class="row align-items-center mb-4 g-3">
-        <div class="col-12 col-md-auto mb-2 mb-md-0 text-center text-md-start">
-            <a href="http://127.0.0.1:8000/admin/inicio" class="btn-regresar">
-                ← Volver al inicio
-            </a>
-        </div>
+         <div class="col-12 col-md-auto mb-2 mb-md-0 d-flex align-items-center">
+                <a href="{{ route('admin.inicio') }}" class="btn-regresar">
+    ← Volver al inicio
+</a>
+
+        
         <div class="col-12 col-md text-center">
             <h1 class="text-2xl font-bold text-gray-800 m-0">Listado de Citas</h1>
         </div>
