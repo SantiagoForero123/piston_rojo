@@ -1,80 +1,122 @@
 <x-app-layout>
-@push('head')
-    <link rel="stylesheet" href="{{ asset('css/citasindex.css') }}">
-@endpush
+    @push('head')
+        <link rel="stylesheet" href="{{ asset('css/EstilosInicioInventario.css') }}">
+    @endpush
 
-<div class="container py-4">
-    <div class="row align-items-center mb-4 g-3">
-        <div class="col-12 col-md-auto mb-2 mb-md-0 text-center text-md-start">
-            <a href="{{ route('admin.inicio') }}" class="btn-regresar">
-                ← Volver al inicio
-            </a>
+    <div class="max-w-7xl mx-auto py-4 px-2">
+        <!-- Cabecera -->
+        <div class="row align-items-center mb-4 g-3">
+            <div class="col-12 col-md-auto mb-2 mb-md-0 d-flex align-items-center">
+                <a href="{{ route('admin.inicio') }}" class="btn-regresar">
+                    ← Volver al inicio
+                </a>
+            </div>
+            <div class="col-12 col-md text-center mb-2 mb-md-0">
+                <h1 class="text-3xl font-bold m-0">Inventario de Productos</h1>
+            </div>
+            <div class="col-12 col-md-auto text-md-end">
+                <a href="{{ route('admin.inventario.create') }}" class="bg-red-600 hover:bg-red-700 button-primary">
+                    + Nuevo Producto
+                </a>
+            </div>
         </div>
-        <div class="col-12 col-md text-center">
-            <h1 class="text-2xl font-bold text-gray-800 m-0">Listado de Citas</h1>
-        </div>
-        <div class="col-12 col-md-auto text-center text-md-end mt-2 mt-md-0">
-            <a href="{{ route('admin.citas.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded d-inline-block">
-                + Nueva Cita
-            </a>
-        </div>
-    </div>
 
-    @if(session('success'))
-        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded">
-            {{ session('success') }}
-        </div>
-    @endif
+        @if(session('success'))
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-800 p-4 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
 
-    @if($citas->isEmpty())
-        <div class="text-center text-gray-600">No hay citas registradas.</div>
-    @else
-        <div class="table-responsive bg-white shadow rounded-lg" style="overflow-x:auto;">
-            <table class="table align-middle mb-0 min-w-full divide-y divide-gray-200 w-100 admin-citas-responsive-table">
-                <thead class="table-light">
+        <!-- Filtros -->
+        <div class="mb-4">
+            <form method="GET" action="{{ route('admin.inventario.index') }}" class="row g-3 align-items-end">
+                <div class="col-12 col-md-4">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por descripción..."
+                        class="border px-3 py-2 rounded w-100" autocomplete="off">
+                </div>
+                <div class="col-12 col-md-4">
+                    <select name="estado_stock" class="border px-3 py-2 rounded w-100">
+                        <option value="">Filtrar por estado de stock</option>
+                        <option value="alto_stock" {{ request('estado_stock') == 'alto_stock' ? 'selected' : '' }}>Alto stock</option>
+                        <option value="medio_stock" {{ request('estado_stock') == 'medio_stock' ? 'selected' : '' }}>Medio stock</option>
+                        <option value="bajo_stock" {{ request('estado_stock') == 'bajo_stock' ? 'selected' : '' }}>Bajo stock</option>
+                        <option value="sin_stock" {{ request('estado_stock') == 'sin_stock' ? 'selected' : '' }}>Sin stock</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <button type="submit" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 w-100">
+                        Filtrar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabla -->
+        <div class="overflow-x-auto bg-white shadow rounded-lg">
+            <table class="min-w-full text-sm text-left table table-hover align-middle mb-0 inventario-responsive-table">
+                <thead class="bg-gray-100 text-xs font-medium uppercase text-gray-500">
                     <tr>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Fecha</th>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Hora</th>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Cliente</th>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Documento</th>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Servicio</th>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Estado</th>
-                        <th class="px-2 px-md-4 py-2 text-left text-sm font-semibold text-dark">Acciones</th>
+                        <th class="px-4 py-2">Código</th>
+                        <th class="px-4 py-2">Descripción</th>
+                        <th class="px-4 py-2">Categoría</th>
+                        <th class="px-4 py-2">Proveedor</th>
+                        <th class="px-4 py-2 text-center">Cantidad</th>
+                        <th class="px-4 py-2">P. Unitario</th>
+                        <th class="px-4 py-2">Total</th>
+                        <th class="px-4 py-2">Stock</th>
+                        <th class="px-4 py-2">Estado</th>
+                        <th class="px-4 py-2">Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($citas as $cita)
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-2 px-md-4 py-2" data-label="Fecha">{{ \Carbon\Carbon::parse($cita->dia)->format('d/m/Y') }}</td>
-                            <td class="px-2 px-md-4 py-2" data-label="Hora">{{ \Carbon\Carbon::parse($cita->hora)->format('H:i') }}</td>
-                            <td class="px-2 px-md-4 py-2" data-label="Cliente">{{ $cita->nombre }} {{ $cita->apellido }}</td>
-                            <td class="px-2 px-md-4 py-2" data-label="Documento">{{ strtoupper($cita->tipo_documento) }} {{ $cita->numero_documento }}</td>
-                            <td class="px-2 px-md-4 py-2 capitalize" data-label="Servicio">{{ str_replace('_', ' ', $cita->tipo_servicio) }}</td>
-                            <td class="px-2 px-md-4 py-2" data-label="Estado">
-                                <span class="text-sm font-semibold px-2 py-1 rounded
-                                    {{ $cita->estado === 'pendiente' ? 'bg-yellow-100 text-yellow-800' : '' }}
-                                    {{ $cita->estado === 'confirmada' ? 'bg-blue-100 text-blue-800' : '' }}
-                                    {{ $cita->estado === 'completada' ? 'bg-green-100 text-green-800' : '' }}
-                                    {{ $cita->estado === 'cancelada' ? 'bg-red-100 text-red-800' : '' }}
-                                    {{ $cita->estado === 'no_asistio' ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    {{ ucfirst(str_replace('_', ' ', $cita->estado)) }}
+                <tbody>
+                    @forelse ($inventarios as $item)
+                        <tr>
+                            <td class="px-4 py-2 font-mono" data-label="Código">{{ $item->codigo }}</td>
+                            <td class="px-4 py-2" data-label="Descripción">{{ $item->descripcion }}</td>
+                            <td class="px-4 py-2" data-label="Categoría">{{ $item->categoria }}</td>
+                            <td class="px-4 py-2" data-label="Proveedor">{{ $item->proveedor->nombre ?? '-' }}</td>
+                            <td class="px-4 py-2 text-center" data-label="Cantidad">{{ $item->cantidad }}</td>
+                            <td class="px-4 py-2" data-label="P. Unitario">${{ number_format($item->precio_unitario, 2) }}</td>
+                            <td class="px-4 py-2" data-label="Total">${{ number_format($item->valor_total, 2) }}</td>
+                            <td class="px-4 py-2" data-label="Stock">
+                                @php
+                                    $color = match($item->estado_stock) {
+                                        'alto_stock' => 'bg-green-100 text-green-800',
+                                        'medio_stock' => 'bg-yellow-100 text-yellow-800',
+                                        'bajo_stock' => 'bg-orange-100 text-orange-800',
+                                        'sin_stock' => 'bg-red-100 text-red-800',
+                                        default => 'bg-gray-200 text-gray-700',
+                                    };
+                                    $textoEstado = str_replace('_', ' ', ucfirst($item->estado_stock));
+                                @endphp
+                                <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full {{ $color }}">
+                                    {{ $textoEstado }}
                                 </span>
                             </td>
+                            <td class="px-4 py-2 capitalize" data-label="Estado">{{ $item->estado ?? '—' }}</td>
                             <td class="px-4 py-2" data-label="Acciones">
-                                <div class="flex gap-2">
-                                    <a href="{{ route('admin.citas.edit', $cita->id) }}" class="text-blue-600 hover:underline">Editar</a>
-                                    <form action="{{ route('admin.citas.delete', $cita->id) }}" method="POST" onsubmit="return confirm('¿Eliminar esta cita?')" class="inline">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a href="{{ route('admin.inventario.edit', $item->id) }}" class="button-edit">Editar</a>
+                                    <form action="{{ route('admin.inventario.destroy', $item->id) }}" method="POST"
+                                        onsubmit="return confirm('¿Deseas eliminar este producto?');" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:underline bg-transparent border-0 p-0" style="background:none;border:none;padding:0;">Eliminar</button>
+                                        <button type="submit" class="text-red-600 hover:underline btn p-0 border-0 bg-transparent">Eliminar</button>
                                     </form>
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="10" class="px-4 py-4 text-center text-gray-500">No hay productos registrados.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
-    @endif
-</div>
+
+        <div class="mt-4">
+            {{ $inventarios->appends(request()->query())->links() }}
+        </div>
+    </div>
 </x-app-layout>
