@@ -10,6 +10,8 @@
     ← Volver al inicio
 </a>
 
+            </div>
+
             <div class="col-12 col-md text-center">
                 <div class="w-100">
                     <h1 class="text-3xl font-bold text-gray-900 m-0 text-break">Gestión de Proveedores</h1>

@@ -10,6 +10,8 @@
     ← Volver al inicio
 </a>
 
+</div>
+
         
         <div class="col-12 col-md text-center">
             <h1 class="text-2xl font-bold text-gray-800 m-0">Listado de Citas</h1>
