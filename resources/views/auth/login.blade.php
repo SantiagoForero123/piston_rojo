@@ -92,7 +92,7 @@
                 </div>
                 <button type="submit" class="btn-login-main">Iniciar Sesión</button>
             </form>
-            <button type="button" class="btn-google-login" onclick="googleLogin()">Iniciar sesión con Google</button>
+            
             
         </div>
     </div>
