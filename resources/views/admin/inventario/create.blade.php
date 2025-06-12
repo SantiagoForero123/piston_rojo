@@ -89,7 +89,9 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label">Valor Total Estimado</label>
+                            <label class="form-label">
+                                Valor Total Estimado
+                            </label>
                             <div class="input-group">
                                 <span class="input-group-text">$</span>
                                 <input type="text" id="valor_total_preview" value="0.00" disabled class="form-control disabled-input">
