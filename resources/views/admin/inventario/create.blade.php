@@ -85,15 +85,18 @@
                             <div class="input-group">
                                 <span class="input-group-text">$</span>
                                 <input type="number" step="0.01" name="precio_unitario" id="precio_unitario" value="{{ old('precio_unitario', 0) }}" min="0" required class="form-control">
-                                <span class="input-group-text">MXN</span>
+                                <span class="input-group-text">COP</span>
                             </div>
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label">Valor Total Estimado</label>
+                            <label
+                                class="form-label">
+                                Valor Total Estimado
+                            </label>
                             <div class="input-group">
                                 <span class="input-group-text">$</span>
                                 <input type="text" id="valor_total_preview" value="0.00" disabled class="form-control disabled-input">
-                                <span class="input-group-text">MXN</span>
+                                <span class="input-group-text">COP</span>
                             </div>
                         </div>
 
@@ -117,22 +120,22 @@
                 const cantidad = document.getElementById('cantidad');
                 const precio = document.getElementById('precio_unitario');
                 const total = document.getElementById('valor_total_preview');
-                
+
                 function formatCurrency(value) {
                     return parseFloat(value).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
                 }
-                
+
                 function calcularTotal() {
                     const c = parseFloat(cantidad.value) || 0;
                     const p = parseFloat(precio.value) || 0;
                     total.value = formatCurrency(c * p);
                 }
-                
+
                 [cantidad, precio].forEach(el => {
                     el.addEventListener('input', calcularTotal);
                     el.addEventListener('change', calcularTotal);
                 });
-                
+
                 calcularTotal();
             });
         </script>
