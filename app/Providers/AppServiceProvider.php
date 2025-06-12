@@ -9,9 +9,10 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void
+      public function register(): void
     {
-        //
+        // Este método se deja vacío intencionalmente.
+        // No se están registrando servicios personalizados en este proveedor.
     }
 
     public function boot(Request $request): void
