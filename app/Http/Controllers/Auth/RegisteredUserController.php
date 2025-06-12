@@ -13,6 +13,13 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    //  Constantes para evitar repetición y mejorar mantenibilidad
+    private const MAX_NOMBRE = 100;
+    private const MAX_CORREO = 191;
+    private const MAX_TIPO_DOCUMENTO = 30;
+    private const MAX_NUMERO_DOCUMENTO = 50;
+    private const MAX_TELEFONO = 20;
+
     /**
      * Mostrar el formulario de registro.
      */
@@ -29,14 +36,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'apellido' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:' . self::MAX_NOMBRE],
+            'apellido' => ['required', 'string', 'max:' . self::MAX_NOMBRE],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:' . self::MAX_CORREO, 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'tipo_documento' => ['required', 'string', 'max:10'],
-            'numero_documento' => ['required', 'string', 'max:50', 'unique:users,numero_documento'],
+            'tipo_documento' => ['required', 'string', 'max:' . self::MAX_TIPO_DOCUMENTO],
+            'numero_documento' => ['required', 'string', 'max:' . self::MAX_NUMERO_DOCUMENTO, 'unique:users,numero_documento'],
             'fecha_nacimiento' => ['nullable', 'date'],
-            'telefono' => ['nullable', 'string', 'max:20'],
+            'telefono' => ['nullable', 'string', 'max:' . self::MAX_TELEFONO],
         ]);
 
         $user = User::create([
@@ -52,9 +59,6 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
-        // No iniciar sesión automáticamente
-        // Auth::login($user);
 
         return redirect('/login');
     }
