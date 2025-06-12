@@ -36,6 +36,9 @@ jobs:
           php artisan route:cache
           php artisan view:cache
 
+      - name: Run tests with PHPUnit
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
       - name: Empaquetar artefacto para deploy
         run: zip -r deploy.zip . -x '*.git*' '*.env*' 'node_modules/*' 'tests/*'
 
