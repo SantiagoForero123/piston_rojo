@@ -97,13 +97,13 @@ select:focus {
     outline: none;
 }
 
-/* Contenedor del input con prefijo y sufijo (ejemplo: MXN) */
+/* Contenedor del input con prefijo y sufijo (ejemplo: COP) */
 .input-group {
     position: relative;
     width: 100%;
 }
 
-/* Prefijo MXN bien posicionado a la izquierda */
+/* Prefijo COP bien posicionado a la izquierda */
 .input-group .prefix {
     position: absolute;
     left: 1rem;
@@ -117,7 +117,7 @@ select:focus {
     z-index: 2;
 }
 
-/* Sufijo MXN bien posicionado a la derecha */
+/* Sufijo COP bien posicionado a la derecha */
 .input-group .suffix {
     position: absolute;
     right: 1rem;
@@ -208,7 +208,7 @@ body, html {
   flex-direction: column;
 }
 
-x-app-layout > div { 
+x-app-layout > div {
   flex-grow: 1; /* Para que el contenido crezca y permita espacio arriba y abajo */
   display: flex;
   justify-content: center;
